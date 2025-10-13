@@ -125,7 +125,7 @@ def load_checkpoint(model, optimizer):
         print(f"🔁 Resuming training from epoch {start_epoch} (previous loss={checkpoint['loss']:.6f})")
         return start_epoch
     print("🆕 No checkpoint found, starting fresh.")
-    return 1
+    return 0
 
 if __name__ == "__main__":
     if os.path.exists("models/frame_interpolation.pth"):
@@ -166,11 +166,12 @@ if __name__ == "__main__":
             
             loop = tqdm(train_loader, total=len(train_loader), desc=f"Epoch [{epoch+1}/{EPOCHS}]")
             
-            print(f"Starting {epoch}/{EPOCHS}...")
+            # print(f"Starting {epoch}/{EPOCHS}...")
             
             batch_no = 1
-            for frame1, frame3, target in train_loader:
-                print(f"Starting batch {batch_no}...")
+            for frame1, frame3, target in loop:
+                # print(f"Starting batch {batch_no}...")
+                
                 frame1, frame3, target = frame1.to(device), frame3.to(device), target.to(device)
                 inputs = torch.cat((frame1, frame3), dim=1)
 
