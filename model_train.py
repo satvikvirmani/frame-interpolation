@@ -10,6 +10,7 @@ from torch.amp import autocast, GradScaler
 from tqdm import tqdm
 
 from classes.en_de import FrameInterpolationModel
+#from classes.cnn import FrameInterpolationModel
 from classes.dataset import FrameInterpolationDataset
 from classes.loss import SSIM_MSE_Loss
 from classes.lr import cosine_lr
@@ -29,6 +30,7 @@ USE_MPS_AMP = False
 os.makedirs("checkpoints", exist_ok=True)
 
 def get_device():
+    return torch.device("cpu")
     # Prioritized: MPS (Apple Metal) -> CUDA -> CPU
     if torch.backends.mps.is_available():
         device = torch.device("mps")

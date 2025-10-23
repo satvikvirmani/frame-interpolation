@@ -17,6 +17,7 @@ class FrameInterpolationDataset(Dataset):
         list_path = os.path.join(root_dir, list_file)
         with open(list_path, 'r') as f:
             self.samples = [line.strip() for line in f.readlines() if line.strip()]
+            self.samples = self.samples[:800]
         
         # Each sample points to something like '00001/0001'
         # and contains three frames: im1.png, im2.png, im3.png

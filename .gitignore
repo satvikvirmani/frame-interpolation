@@ -211,3 +211,7 @@ pyrightconfig.json
 data/
 
 vimeo_triplet/
+vimeo_triplet2/
+video/videos/
+checkpoints/checkpoint*.pth
+tensorflow/checkpoints/epoch_*

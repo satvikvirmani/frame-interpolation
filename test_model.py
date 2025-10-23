@@ -9,7 +9,7 @@ from torchvision.utils import make_grid
 from torch.nn.functional import interpolate as F_interpolate
 from tqdm import tqdm
 
-from classes.model import FrameInterpolationModel
+from classes.en_de import FrameInterpolationModel
 from classes.dataset import FrameInterpolationDataset
 
 def psnr(pred, target):
@@ -101,7 +101,7 @@ def show_predictions(model, dataset, device, num_samples=5):
 # ---------------------------------------------
 if __name__ == "__main__":
     root_dir = 'vimeo_triplet'
-    model_path = 'models/frame_interpolation.pth'
+    model_path = 'checkpoints/checkpoint.pth'
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     print("Using device:", device)
