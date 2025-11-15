@@ -1,6 +1,3 @@
-# Created by https://www.toptal.com/developers/gitignore/api/python,macos
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,macos
-
 ### macOS ###
 # General
 .DS_Store
@@ -210,8 +207,10 @@ pyrightconfig.json
 
 data/
 
+dataset/
+
 vimeo_triplet/
 vimeo_triplet2/
 video/videos/
 checkpoints/checkpoint*.pth
-tensorflow/checkpoints/epoch_*
+tensorflow/checkpoints
